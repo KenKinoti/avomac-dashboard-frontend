@@ -77,16 +77,22 @@ export default {
         to: '/dashboard',
         icon: 'mdi-view-dashboard',
         text: 'Dashboard'
-      },
-      {
+      },{
         to: '/delivery',
         icon: 'mdi-truck',
         text: 'Deliveries'
-      },
-      {
+      },{
         to: '/supplier',
         icon: 'mdi-account-plus',
         text: 'Suppliers'
+      },{
+        to: '/production',
+        icon: 'mdi-hammer',
+        text: 'Production Managemnet'
+      },{
+        to: '/quality',
+        icon: 'mdi-hammer',
+        text: 'Quality Analysis'
       }
     ],
     responsive: false

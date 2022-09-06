@@ -16,7 +16,7 @@
           color="info"
           type="Line"
         >
-          <h4 class="title font-weight-light">Daily Sales</h4>
+          <h4 class="title font-weight-light">Daily Avocado Oil</h4>
           <p class="category d-inline-flex font-weight-light">
             <v-icon
               color="green"
@@ -25,7 +25,7 @@
               mdi-arrow-up
             </v-icon>
             <span class="green--text">55%</span>&nbsp;
-            increase in today's sales
+            increase in today's production
           </p>
 
           <template slot="actions">
@@ -51,8 +51,8 @@
           color="red"
           type="Bar"
         >
-          <h4 class="title font-weight-light">Email Subscription</h4>
-          <p class="category d-inline-flex font-weight-light">Last Campaign Performance</p>
+          <h4 class="title font-weight-light">Monthly Production</h4>
+          <p class="category d-inline-flex font-weight-light">Last Month Production</p>
 
           <template slot="actions">
             <v-icon
@@ -76,8 +76,8 @@
           color="green"
           type="Line"
         >
-          <h3 class="title font-weight-light">Completed Tasks</h3>
-          <p class="category d-inline-flex font-weight-light">Last Last Campaign Performance</p>
+          <h3 class="title font-weight-light">Hourly Production</h3>
+          <p class="category d-inline-flex font-weight-light">Last 3 Hours Production</p>
 
           <template slot="actions">
             <v-icon
@@ -86,7 +86,7 @@
             >
               mdi-clock-outline
             </v-icon>
-            <span class="caption grey--text font-weight-light">campaign sent 26 minutes ago</span>
+            <span class="caption grey--text font-weight-light">updated 26 minutes ago</span>
           </template>
         </material-chart-card>
       </v-flex>
@@ -114,9 +114,9 @@
         <material-stats-card
           color="orange"
           icon="mdi-content-copy"
-          title="Used Space"
-          value="49/50"
-          small-value="GB"
+          title="Used Barrels"
+          value="409/500"
+          small-value="Br"
           sub-icon="mdi-alert"
           sub-icon-color="error"
           sub-text="Get More Space..."
@@ -132,10 +132,10 @@
         <material-stats-card
           color="red"
           icon="mdi-information-outline"
-          title="Fixed Issues"
+          title="Prduction Issues"
           value="75"
           sub-icon="mdi-tag"
-          sub-text="Tracked from Github"
+          sub-text="Tracked from lab"
         />
       </v-flex>
       <v-flex
@@ -147,8 +147,8 @@
         <material-stats-card
           color="info"
           icon="mdi-twitter"
-          title="Followers"
-          value="+245"
+          title="Active Employees"
+          value="+5"
           sub-icon="mdi-update"
           sub-text="Just Updated"
         />
