@@ -13,7 +13,7 @@
 export default {
   metaInfo () {
     return {
-      title: 'iPay Backoffice'
+      title: 'AVOMAC Backoffice'
     }
   }
 }

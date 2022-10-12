@@ -19,7 +19,7 @@
       &copy;
       {{ (new Date()).getFullYear() }}
       <a
-        href="https://ipayafrica.com/"
+        href="https://avomac.co.ke/"
         target="_blank">AVOMAC</a>, made with
       <v-icon
         color="tertiary"
@@ -33,10 +33,10 @@
 export default {
   data: () => ({
     links: [
-      { name: 'Home', Link: '/dashboard' },
-      { name: 'Creative Tim', Link: 'https://www.creative-tim.com' },
-      { name: 'About Us', Link: 'https://creative-tim.com/presentation' },
-      { name: 'Blog', Link: 'https://blog.creative-tim.com' }
+      { name: 'dashboard', Link: '/dashboard' },
+      { name: 'AVOMAC WEBSITE', Link: 'https://avomac.co.ke/' },
+      { name: 'About Us', Link: 'https://avomac.co.ke/' },
+      { name: 'Blog', Link: 'https://avomac.co.ke/' }
     ]
   })
 }

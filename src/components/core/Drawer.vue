@@ -88,7 +88,7 @@ export default {
       },{
         to: '/production',
         icon: 'mdi-hammer',
-        text: 'Production Managemnet'
+        text: 'Production Management'
       },{
         to: '/quality',
         icon: 'mdi-hammer',

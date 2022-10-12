@@ -19,6 +19,21 @@
               <td>{{ item.source }}</td>
               <td>{{ item.amount }}</td>
               <td class="text-xs-right">{{ item.price }}</td>
+              <td> 
+                <v-btn
+                color="blue"
+                class="font-weight-light"
+                @click="update_delivery(item.ID)"
+                >UPDATE</v-btn>
+
+                ||
+
+                <v-btn
+                color="danger"
+                class="font-weight-light"
+                @click="delete_delivery(item.ID)"
+                >DELETE</v-btn>
+              </td>
             </template>
           </v-data-table>
         </material-card>
@@ -56,7 +71,7 @@ export default {
   data: () => ({
     headers: [
       {
-        sortable: true,
+        sortable: false,
         text: "Supplier Name",
         value: "name",
       },
@@ -74,8 +89,12 @@ export default {
         sortable: true,
         text: "Price",
         value: "price",
-        align: "right",
       },
+      {
+        sortable: false,
+        text: "Manage",
+        value: "manage"
+      }
     ],
     items: [],
   }),
@@ -99,11 +118,48 @@ export default {
     fetch(process.env.VUE_APP_STAGING_ENDPOINT + "deliveries", requestOptions)
       .then(response => response.json())
       .then(result => {
-        console.log(result)
-        this.items = result
+        console.log(result.data)
+        this.items = result.data
         })
       .catch(error => console.log('error', error));
 
   },
+
+  methods: {
+    update_delivery(id) {
+
+      alert("Here we are updating the delivery " + id + " coming soon")
+  
+    },
+
+    delete_delivery(id) {
+
+      alert("You are about to delete delivery " + id)
+
+      var requestOptions = {
+      method: "DELETE", // *GET, POST, PUT, DELETE, etc.
+      mode: "cors", // no-cors, cors, *same-origin
+      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: "same-origin", // include, *same-origin, omit
+      headers: {
+        // 'Authorization': JSON.parse(localStorage.getItem('token')).token,
+        Accept: "application/json",
+      },
+      redirect: "follow", // manual, *follow, error
+      referrer: "no-referrer", // no-referrer, *client
+      // body: JSON.stringify(data) // body data type must match "Content-Type" header
+    };
+
+    fetch(process.env.VUE_APP_STAGING_ENDPOINT + "deliveries/" + id, requestOptions)
+      .then(response => response.json())
+      .then(result => {
+        console.log(result)
+        // this.items = result.data
+        window.location.reload();
+        })
+      .catch(error => console.log('error', error));
+
+    }
+  }
 };
 </script>
