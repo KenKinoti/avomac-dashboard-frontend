@@ -73,12 +73,12 @@ export default {
       // body: JSON.stringify(data) // body data type must match "Content-Type" header
     };
 
-    fetch(process.env.VUE_APP_STAGING_ENDPOINT + "deliveries", requestOptions)
+    fetch(process.env.VUE_APP_STAGING_ENDPOINT + "supplies", requestOptions)
       .then(response => response.json())
       .then(result => {
-        console.log(result.data.map(e => e.supplier))
+        console.log(result.data.map(e => e.company))
 
-        this.items = result.data.map(e => e.supplier)
+        this.items = result.data.map(e => e.company)
       })
       .catch(error => console.log('error', error));
 
@@ -111,12 +111,6 @@ export default {
           this.$store.commit('delivery')
           this.$router.push('/delivery')
           this.$refs.form.reset()
-          this.supplier = ""
-          this.source = ""
-          this.amount = ""
-          this.price = ""
-          this.comments = ""
-          this.created_at
 
           console.log('error here ', r);
           console.log("Bazzu", JSON.stringify(data))
