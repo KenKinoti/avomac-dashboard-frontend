@@ -73,27 +73,29 @@ export default {
   data: () => ({
     logo: './img/download.png',
     links: [
+      // {
+      //   to: '/dashboard',
+      //   icon: 'mdi-view-dashboard',
+      //   text: 'Dashboard'
+      // },
       {
-        to: '/dashboard',
-        icon: 'mdi-view-dashboard',
-        text: 'Dashboard'
-      },{
         to: '/delivery',
         icon: 'mdi-truck',
-        text: 'Deliveries'
+        text: 'Deliveries/ Orders'
       },{
         to: '/supplier',
         icon: 'mdi-account-plus',
-        text: 'Suppliers'
-      },{
-        to: '/production',
-        icon: 'mdi-hammer',
-        text: 'Production Management'
-      },{
-        to: '/quality',
-        icon: 'mdi-hammer',
-        text: 'Quality Analysis'
+        text: 'Leads/ Supplier'
       }
+      // ,{
+      //   to: '/production',
+      //   icon: 'mdi-hammer',
+      //   text: 'Production Management'
+      // },{
+      //   to: '/quality',
+      //   icon: 'mdi-hammer',
+      //   text: 'Quality Analysis'
+      // }
     ],
     responsive: false
   }),

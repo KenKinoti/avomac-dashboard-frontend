@@ -16,7 +16,12 @@
 
       <v-flex xs12 md9>
         <material-card color="green" title="Previous Deliveries" text="Summary of previous deliveries">
-          <v-data-table :headers="headers" :items="items" hide-actions>
+          
+          <v-data-table 
+            :headers="headers" 
+            :items="items" 
+            hide-actions
+            :pagination.sync="pagination">
             <template slot="headerCell" slot-scope="{ header }">
               <span class="subheading font-weight-light text-success text--darken-3" v-text="header.text" />
             </template>
@@ -61,6 +66,14 @@
               </td>
             </template>
           </v-data-table>
+
+          <!-- Add pagination -->
+          <v-pagination 
+            v-model="pagination.page" 
+            :length="Math.ceil(items.length / pagination.itemsPerPage)">
+          </v-pagination>
+          <!-- End of Add Pagination -->
+
         </material-card>
       </v-flex>
 
@@ -101,6 +114,11 @@ export default {
     ],
     items: [],
     dialog: false,
+    pagination: {
+      rowsPerPageOptions: [5, 10, 25],
+      itemsPerPage: 7,
+      page: 1
+    },
   }),
 
   mounted() {

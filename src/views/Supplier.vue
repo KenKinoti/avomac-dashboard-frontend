@@ -15,9 +15,15 @@
 
       <v-flex xs12 md9>
         <material-card color="green" title="Suppliers" text="Summary of all suppliers">
-          <v-data-table :headers="headers" :items="items" hide-actions>
+
+          <v-data-table 
+          :headers="headers" 
+          :items="items" 
+          hide-actions
+          :pagination.sync="pagination" 
+          >
             <template slot="headerCell" slot-scope="{ header }">
-              <span class="subheading font-weight-light text-success text--darken-3" v-text="header.text" />
+              <span class="subheading font-weight-light text-success text--darken-3" v-text="header.text"/>
             </template>
             <template slot="items" slot-scope="{ item }">
               <td>{{ item.company }}</td>
@@ -29,7 +35,6 @@
                 <v-btn color="blue" class="font-weight-light" @click="update_supply(item.ID)">UPDATE</v-btn>
 
                 ||
-
 
                 <v-btn color="danger" class="font-weight-light" dark @click.stop="dialog = true">DELETE</v-btn>
 
@@ -51,7 +56,7 @@
                         Disagree
                       </v-btn>
 
-                      <v-btn color="red darken-1" text @click="delete_delivery(item.ID)">
+                      <v-btn color="red darken-1" text @click="delete_supply(item.ID)">
                         Agree
                       </v-btn>
                     </v-card-actions>
@@ -61,6 +66,14 @@
               </td>
             </template>
           </v-data-table>
+
+          <!-- Add pagination -->
+          <v-pagination 
+            v-model="pagination.page" 
+            :length="Math.ceil(items.length / pagination.itemsPerPage)">
+          </v-pagination>
+          <!-- End of Add Pagination -->
+
         </material-card>
       </v-flex>
 
@@ -104,6 +117,11 @@ export default {
     ],
     items: [],
     dialog: false,
+    pagination: {
+      rowsPerPageOptions: [5, 10, 25],
+      itemsPerPage: 7,
+      page: 1
+    },
   }),
 
   mounted() {
@@ -161,7 +179,8 @@ export default {
         .then(result => {
           console.log(result)
           // this.items = result.data
-          window.location.reload();
+          // window.location.reload();
+          this.items = this.items.filter((item) => item.ID !== id);
         })
         .catch(error => console.log('error', error));
 

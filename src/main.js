@@ -16,6 +16,8 @@ import App from './App'
 import i18n from '@/i18n'
 import router from '@/router'
 import store from '@/store'
+import { VPagination } from "vuetify/lib";
+
 
 // Sync store with router
 sync(store, router)
@@ -27,5 +29,6 @@ new Vue({
   i18n,
   router,
   store,
+  VPagination,
   render: h => h(App)
 }).$mount('#app')
