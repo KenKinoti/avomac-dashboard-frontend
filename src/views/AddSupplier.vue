@@ -7,7 +7,7 @@
             <v-container py-0>
               <v-layout wrap>
                 <v-flex xs12 md4>
-                  <v-text-field label="Company" class="purple-input" v-model="company" :rules="requiredRules"
+                  <v-text-field label="Company Name" class="purple-input" v-model="company" :rules="requiredRules"
                     required />
                 </v-flex>
                 <v-flex xs12 md4>

@@ -85,7 +85,7 @@ export default {
       },{
         to: '/supplier',
         icon: 'mdi-account-plus',
-        text: 'Leads/ Supplier'
+        text: 'Leads/ Suppliers'
       }
       // ,{
       //   to: '/production',
