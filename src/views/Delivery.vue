@@ -26,10 +26,11 @@
               <span class="subheading font-weight-light text-success text--darken-3" v-text="header.text" />
             </template>
             <template slot="items" slot-scope="{ item }">
-              <td>{{ item.supplier }}</td>
-              <td>{{ item.source }}</td>
+              <td>{{ item.supplier_id }}</td>
+              <td>{{ item.fruit_type_id }}</td>
               <td>{{ item.amount }}</td>
-              <td>{{ item.price }}</td>
+              <td>{{ item.rate }}</td>
+              <td>{{ item.advance }}</td>
               <td>
                 <v-btn color="blue" class="font-weight-light" @click="update_delivery(item.ID)">UPDATE</v-btn>
 
@@ -45,7 +46,7 @@
                     </v-card-title>
 
                     <v-card-text>
-                      You are about to delete a delivery from {{item.supplier}} of {{item.amount}} KGS
+                      You are about to delete a delivery from {{item.supplier_id}} of {{item.amount}} KGS
                     </v-card-text>
 
                     <v-card-actions>
@@ -89,12 +90,12 @@ export default {
       {
         sortable: false,
         text: "Supplier Name",
-        value: "name",
+        value: "supplier_id",
       },
       {
         sortable: false,
-        text: "Source",
-        value: "source",
+        text: "Fruit Type",
+        value: "fruit_type_id",
       },
       {
         sortable: true,
@@ -103,8 +104,13 @@ export default {
       },
       {
         sortable: true,
-        text: "Price",
-        value: "price",
+        text: "Rate",
+        value: "rate",
+      },
+      {
+        sortable: true,
+        text: "Advance",
+        value: "advance",
       },
       {
         sortable: false,
