@@ -84,7 +84,7 @@ export default {
       };
 
 
-    fetch(process.env.VUE_APP_STAGING_ENDPOINT + "supplies", requestOptions)
+    fetch(process.env.VUE_APP_STAGING_ENDPOINT + "supplier_details", requestOptions)
         .then(response => response.json())
         .then(r => {
 

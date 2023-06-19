@@ -2,7 +2,7 @@
   <v-container fill-height fluid grid-list-xl>
     <v-layout justify-center wrap>
 
-      <v-flex xs12 md3>
+      <!-- <v-flex xs12 md3>
         <material-card color="brown" flat full-width title="Add new supplier"
           text="Add a new supplier details to enable better management">
           <v-card-text class="text-xs-center">
@@ -11,9 +11,9 @@
             <v-btn color="brown" round class="font-weight-light" to="/add-supplier">Add New Supplier</v-btn>
           </v-card-text>
         </material-card>
-      </v-flex>
+      </v-flex> -->
 
-      <v-flex xs12 md9>
+      <v-flex xs12>
         <material-card color="green" title="Suppliers" text="Summary of all suppliers">
 
           <v-data-table 
@@ -139,7 +139,7 @@ export default {
       // body: JSON.stringify(data) // body data type must match "Content-Type" header
     };
 
-    fetch(process.env.VUE_APP_STAGING_ENDPOINT + "supplies", requestOptions)
+    fetch(process.env.VUE_APP_STAGING_ENDPOINT + "supplier_details", requestOptions)
       .then(response => response.json())
       .then(result => {
         console.log(result.data)

@@ -1,7 +1,7 @@
 <template>
   <v-container fill-height fluid grid-list-xl>
     <v-layout justify-center wrap>
-      <v-flex xs12 md3>
+      <!-- <v-flex xs12 md3>
         <material-card color="brown" flat full-width title="Add new delivery" text="Add a new delivery received">
           <v-card-text class="text-xs-center">
             <h4 class="card-title font-weight-light">Delivery Particulars</h4>
@@ -12,9 +12,9 @@
             <v-btn color="brown" round class="font-weight-light" to="/add-delivery">Add New Delivery</v-btn>
           </v-card-text>
         </material-card>
-      </v-flex>
+      </v-flex> -->
 
-      <v-flex xs12 md9>
+      <v-flex xs12>
         <material-card color="green" title="Previous Deliveries" text="Summary of previous deliveries">
           
           <v-data-table 
@@ -26,8 +26,8 @@
               <span class="subheading font-weight-light text-success text--darken-3" v-text="header.text" />
             </template>
             <template slot="items" slot-scope="{ item }">
-              <td>{{ item.supplier_id }}</td>
-              <td>{{ item.fruit_type_id }}</td>
+              <td>{{ item.supplier }}</td>
+              <td>{{ item.fruit_type }}</td>
               <td>{{ item.amount }}</td>
               <td>{{ item.rate }}</td>
               <td>{{ item.advance }}</td>
@@ -90,12 +90,12 @@ export default {
       {
         sortable: false,
         text: "Supplier Name",
-        value: "supplier_id",
+        value: "supplier",
       },
       {
         sortable: false,
         text: "Fruit Type",
-        value: "fruit_type_id",
+        value: "fruit_type",
       },
       {
         sortable: true,

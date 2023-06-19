@@ -49,6 +49,10 @@ export default [
     name: 'Add Supplier',
     view: 'AddSupplier'
   },  {
+    path: '/add-Production',
+    name: 'Add Production',
+    view: 'AddProduction'
+  },  {
     path: '/production',
     name: 'Production Management',
     view: 'Production'

@@ -2,36 +2,37 @@
   <v-container fill-height fluid grid-list-xl>
     <v-layout justify-center wrap>
       <v-flex xs12>
-        <material-card color="green" title="Add New Delivery" text="Complete the form with the new delivery details">
+        <material-card color="green" title="Add New Production" text="Complete the form with the new delivery details">
           <v-form>
             <v-container py-0>
               <v-layout wrap>
-                <v-flex xs12 md6>
-                  <v-select v-model="supplier" :items="items" item-text="company" item-value="id"
-                    :rules="[v => !!v || 'Supplier name is required']" label="Select Supplier" required></v-select>
+                <v-flex xs12 md12>
+                  <v-select 
+                  v-model="staff" 
+                  :items="items" 
+                  item-text="staff" 
+                  item-value="id"
+                  :rules="[v => !!v || 'Staff name is required']"
+                  label="Select Staff" 
+                  multiple
+                  chips
+                  required></v-select>
                 </v-flex>
                 <v-flex xs12 md6>
-                  <v-text-field v-model="fruit_type" class="purple-input" label="Fruit Type" />
+                  <v-text-field v-model="time_start" class="purple-input" label="Time Start" />
                 </v-flex>
-                <v-flex xs12 md3>
-                  <v-text-field v-model="amount" label="Amount in Kilograms" class="purple-input"
-                    :rules="requiredRules" />
+                <v-flex xs12 md6>
+                  <v-text-field v-model="time_stop" label="Time Stop" disabled class="purple-input"/>
                 </v-flex>
-                <v-flex xs12 md3>
-                  <v-text-field v-model="rate" label="Rate" class="purple-input" :rules="requiredRules" />
-                </v-flex>
-                <v-flex xs12 md3>
-                  <v-text-field v-model="advance" label="Advance" class="purple-input" :rules="requiredRules" />
-                </v-flex>
-                <v-flex xs12 md3>
-                  <v-text-field v-model="created_at" label="Date - Time of Delivery" class="purple-input" />
+                <v-flex xs12 md12>
+                  <v-text-field v-model="oil_weight" label="Oil Weight" class="purple-input" :rules="requiredRules" />
                 </v-flex>
                 <!-- <v-flex xs12>
                   <v-textarea v-model="comments" class="purple-input" label="Delivery Notes" />
                 </v-flex> -->
                 <v-flex xs12 text-xs-right>
                   <v-btn class="mx-0 font-weight-light" color="success" @click="add_delivery">
-                    Add New Delivery
+                    Add Production
                   </v-btn>
                 </v-flex>
               </v-layout>
@@ -53,14 +54,10 @@ export default {
       v => (v && v.length <= 10) || 'Name must be less than 10 characters',
     ],
     items: [],
-    supplier: '',
-    fruit_type: '',
-    advance: '',
-    rate: '',
-    amount: '',
-    price: '',
-    comments: '',
-    created_at: new Date().toLocaleString(),
+    staff: '',
+    oil_weight: '',
+    time_start: new Date().toLocaleString(),
+    time_stop: '',
     requiredRules: [v => !!v || 'This input is required'],
   }),
 
@@ -78,12 +75,11 @@ export default {
       // body: JSON.stringify(data) // body data type must match "Content-Type" header
     };
 
-    fetch(process.env.VUE_APP_STAGING_ENDPOINT + "supplier_details", requestOptions)
+    fetch(process.env.VUE_APP_STAGING_ENDPOINT + "staffs", requestOptions)
       .then(response => response.json())
       .then(result => {
-        console.log(result.data.map(e => e.company))
-
-        this.items = result.data.map(e => e.company)
+        console.log(result.data.map(e => e.first_name + ' ' + e.last_name)); // Print staff names
+        this.items = result.data.map(e => e.first_name + ' ' + e.last_name);
       })
       .catch(error => console.log('error', error));
 
@@ -92,7 +88,7 @@ export default {
   methods: {
     add_delivery() {
 
-      var data = { supplier: this.supplier, fruit_type: this.fruit_type, amount: this.amount, rate: this.rate, advance: this.advance }
+      var data = { staff: this.staff, time_start: this.time_start, time_stop:this.time_stop, oil_weight:this.oil_weight }
       console.log(data)
 
       var requestOptions = {
@@ -109,12 +105,12 @@ export default {
         body: JSON.stringify(data) // body data type must match "Content-Type" header
       };
 
-      fetch(process.env.VUE_APP_STAGING_ENDPOINT + "deliveries", requestOptions)
+      fetch(process.env.VUE_APP_STAGING_ENDPOINT + "productions", requestOptions)
         .then(response => response.json())
         .then(r => {
 
-          this.$store.commit('delivery')
-          this.$router.push('/delivery')
+          this.$store.commit('production')
+          this.$router.push('/production')
           this.$refs.form.reset()
 
           console.log('error here ', r);
