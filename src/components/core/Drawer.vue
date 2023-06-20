@@ -60,18 +60,6 @@ export default {
       //   text: 'Dashboard'
       // },
       {
-        to: '/supplier',
-        icon: 'mdi-account-plus',
-        text: 'Leads/ Suppliers',
-        subMenu: [
-          {
-            to: '/add-supplier',
-            icon: 'mdi-plus',
-            text: 'Add Supplier',
-            selected: false
-          }
-        ]
-      }, {
         to: '/delivery',
         icon: 'mdi-truck',
         text: 'Deliveries/ Orders',
@@ -84,8 +72,7 @@ export default {
             selected: false
           }
         ]
-      }
-      , {
+      }, {
         to: '/production',
         icon: 'mdi-ammunition',
         text: 'Production Management',
@@ -98,7 +85,26 @@ export default {
             selected: false
           }
         ]
-      }, {
+      },
+      
+      {
+        to: '/supplier',
+        icon: 'mdi-account-plus',
+        text: 'Leads/ Suppliers',
+        subMenu: [
+          {
+            to: '/add-supplier',
+            icon: 'mdi-plus',
+            text: 'Add Supplier',
+            selected: false
+          },{
+            to: '/add-supplier',
+            icon: 'mdi-plus',
+            text: 'Add Staff',
+            selected: false
+          }
+        ]
+      },{
         to: '/quality',
         icon: 'mdi-hammer',
         text: 'Quality Analysis'
